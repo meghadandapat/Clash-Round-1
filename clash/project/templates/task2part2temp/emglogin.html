@@ -1,0 +1,15 @@
+{% extends 'task2part2temp/layout.html' %}
+{% block body %}
+{%for msg in msg%}
+<h2>{{msg}}</h2>
+{%endfor%}
+<h1>Emergency Login Page</h1><br>
+<form method="POST" action="{%url 'emglogin'%}">
+    {% csrf_token %}
+    <label for="username" >Username: - <input type="text" name="username" ></label><br>
+    <label for="admin_username" >Admin Username: - <input type="text" name="admin_username" ></label><br>
+    <label for="admin_password" >Admin Password: - <input type="password" name="admin_password" ></label><br>
+    <label for="extra-time"> Extra time given: -<input type="number" name="extra_time"></label><br>
+    <input type="submit" value="Submit">
+    </form>
+{% endblock %}

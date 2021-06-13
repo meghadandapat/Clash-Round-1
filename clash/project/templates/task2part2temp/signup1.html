@@ -1,0 +1,100 @@
+{% extends 'task2part2temp/layout.html' %}
+
+{%block head%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      #message{
+          font-family: Arial, Helvetica, sans-serif;
+          margin-left: 180px;
+          box-sizing: border-box;
+      }
+
+      #msg{
+          font-family: Arial, Helvetica, sans-serif;
+          margin-left: 180px;
+          box-sizing: border-box;
+      }
+    </style>
+{%endblock%}
+{% block body %}
+<h1>Signup Page</h1>
+{%for msg in msg %}
+<h1>{{msg}}</h1>
+{%endfor%}
+
+<div id="message1"></div>
+<form class="" action='{% url "signup" %}' method="post">
+  {% csrf_token %}
+  <label for="username" >Username: - <input type="text" id="search" name="username" ></label>
+  <div id="message"></div><br>
+  <label for="firstname">Firstname: - <input type="text" name="firstname" value=""></label><br />
+  <label for="lastname">Lastname: - <input type="text" name="lastname" value=""></label><br />
+  <label for="email">Email: - <input type="email" name="email" value=""></label><br />
+  <label for="phone">Phone Number: - <input name="phone" maxlength="10" pattern="\d{10}"  class="form-control" type="text" title="You can enter only 10 digits..."  required /></label><br>
+  <label for="level">Choose the level:
+  <select name="level" id="level">
+    <option value="fe">FE</option>
+    <option value="se">SE</option>
+    <option value="te">TE</option>
+    <option value="be">BE</option>
+    <option value="other">other</option>
+  </select></label><br>
+  
+  <label for="language">Choose the Language:
+  <select name="language" id="language">
+    <option value="C/C++">C/C++</option>
+    <option value="Python">Python</option>
+  </select></label><br>
+  <label for="password">Password: - <input type="password" name="password" value="" id="pass" ></label><br>
+  <label for="confirm_password">Confirm Password: - <input type="password" name="confirm_password" value="" id="confpass" ></label><br>
+  <div id="msg"></div><br>
+  <input type="submit" id="submit" value="Submit Data" />
+</form>
+<a href="{% url 'signin' %}">Already Signed Up? Signin from here</a>
+<script>
+        $(document).ready(function() {
+            let delayTimer;
+            $('input#search').keyup(function() {
+            clearTimeout(delayTimer);
+            let name = $('#search').val();
+            delayTimer=setTimeout(function(){
+                $.ajax({
+                    method: 'GET',
+                    url: `${window.location.origin}/getrequest/`,
+                    dataType: 'json',
+                    data : {
+                        'name':name
+                    },
+                    success: function(data) {
+                        if(data.is_taken) {
+                            $('#message').html("<h3 style='color:red;'>Username Exists</h3>");
+                            $('#search').css("border", "2px solid red");
+                            $('#submit').prop("disabled", true);
+                        } else {
+                            $('#message').html("<h3 style='color:green;'>Username Available</h3>");
+                            $('#search').css("border", "2px solid green");
+                            $('#submit').prop("disabled", false);
+                        }
+                    }
+                });
+            }, 1000);
+            });
+            $('input#confpass').keyup(function(){
+				let pass = $('#pass').val();
+				let confpass = $(this).val();
+                    if(pass == confpass){
+                         $('#msg').html("<h3 style='color:green;'>Passwords Match, You can proceed!</h3>");
+                         $('#submit').prop("disabled", false);
+                        }else{
+                         $('#msg').html("<h3 style='color:red;'>Passwords Don't Match</h3>");
+                         $('#submit').prop("disabled", true);
+                    }
+			});
+        });
+
+
+    </script>
+{% endblock %}

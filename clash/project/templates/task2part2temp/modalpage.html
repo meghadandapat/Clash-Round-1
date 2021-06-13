@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modalpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/simple-crypto-js@2.5.0/dist/SimpleCrypto.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{% static '/js/tabChange.js' %}"></script>
+</head>
+<body>
+    <h1>
+        {%for msg in msg%}
+        {{msg}}
+        {%endfor%}
+    </h1>
+
+<h1>Your total score is: {{user.total_score}}</h1>
+    <h1>Your Predicted score is {{user.predicted_score}}</h1><br><br>
+    <h1>Are you sure you want to logout?</h1>
+    <br>
+    <br><form action="{% url 'visionise'%}" method="post">
+    {% csrf_token %}
+    <button type="submit" name = 'visionise' style="margin: 10px;" id="visionise_button">Visionise</button>
+</form>
+    <br>
+    <br>
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    <script>
+    let total_score={{user.total_score}};
+    $('#visionise_button').prop("disabled", true);
+            function vision_button(){
+                if({{user.predicted_score}}<=total_score+5 && {{user.predicted_score}}>=total_score-5 && {{user.predicted_score}}!=0){
+                    $('#visionise_button').prop("disabled", false);
+                }
+            }
+            vision_button();
+    </script>
+</body>
+</html>

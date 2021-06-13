@@ -1,0 +1,178 @@
+{% load static %}
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clash Result</title>
+
+    <script src="https://kit.fontawesome.com/361790cf68.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/ClashResult.css' %}" />
+
+</head>
+<header class="navbar navbar-expand-lg navbar-light" style="background:
+      #010c16;">
+
+      <a class="navbar" href="#">
+        <img src="{% static '/images/clashwhite.png' %}" height="35px" width="55px" alt="LOGO">
+      </a>
+      <div class="bar">
+        <a class="navbar-brand text-white" href="#">Result</a>
+      </div>
+      <div class="navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="hide">
+          <img src="{% static '/images/logo pisb_2.png' %}" height="30" alt="LOGO">
+        </div>
+      </div>
+
+</header>
+
+  <body onload="openShutter()">
+
+    <div class="row mx-auto  align-items-center" >
+        <div class=" col-lg-3" style="margin-top: 8vh;  ">
+            <div class="card animated animatedFadeInUp fadeInUp box mb-5 text-light" style="height: 60vh;">
+                <div class="card-body" style="font-size:18px;">
+                    <h3 class="card-title text-center">Reverse Coding</h3>
+                     <p style="text-align: center;">Reverse coding is a game which tests your logic and speed of developing algorithms
+                       of various mathematical phenomena.In this game you have to find answers of integer
+                      type questions using C/C++ code. </p>
+                </div>
+            </div>
+        </div>
+
+      <div class=" col-lg-6 text-center "  >
+
+            <i class="fas fa-user-circle fa-4x" ></i>
+            <p style="color: black; font-size: 5vh; ">{{user.user.username}}</p>
+
+          <div class="container " style="margin-top: 100px; ">
+
+              <div class="wrapper" style="z-index: 50;">
+                <div class="shutter">
+                  <div class="flap-0"><svg height="150" width="143">
+              <polygon points="0 0,60 65,143 150,0 150" style="fill:#202020;"/>
+            </svg></div>
+                  <div class="flap-1"></div>
+                  <div class="flap-2"></div>
+                  <div class="flap-3"></div>
+                  <div class="flap-4"></div>
+                  <div class="flap-5"></div>
+                  <div class="flap-6"></div>
+                  <div class="flap-7"></div>
+                  <div class="flap-8"></div>
+                </div>
+
+              </div>
+              <div class="centered" >SCORE</div>
+             <div class="center-top" >{{user.total_score}}</div>
+          </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+
+            <div class="container  camera1" style="margin-top: 200px; ">
+
+              <div class="wrapper" style="z-index: 50;">
+                <div class="shutter2">
+                  <div class="r-0"><svg height="150" width="143">
+              <polygon points="0 0,60 65,143 150,0 150" style="fill:#202020;"/>
+            </svg></div>
+                  <div class="r-1"></div>
+                  <div class="r-2"></div>
+                  <div class="r-3"></div>
+                  <div class="r-4"></div>
+                  <div class="r-5"></div>
+                  <div class="r-6"></div>
+                  <div class="r-7"></div>
+                  <div class="r-8"></div>
+                </div>
+
+              </div>
+
+              <div class="text-left" >Questions</div>
+              <div class="bottom-left" >{{ques_answered}}</div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <div class="container  camera1" style="margin-top: 200px; ">
+
+              <div class="wrapper" style="z-index: 50;">
+                <div class="shutter1">
+                  <div class="view-0"><svg height="150" width="143">
+              <polygon points="0 0,60 65,143 150,0 150" style="fill:#202020;"/>
+            </svg></div>
+                  <div class="view-1"></div>
+                  <div class="view-2"></div>
+                  <div class="view-3"></div>
+                  <div class="view-4"></div>
+                  <div class="view-5"></div>
+                  <div class="view-6"></div>
+                  <div class="view-7"></div>
+                  <div class="view-8"></div>
+                </div>
+
+              </div>
+
+            <div class="text-right" >Corrects</div>
+            <div class="bottom-right" >{{user.correct_answered}}</div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+        <div class=" col-lg-3 adjust1" style="margin-top: 8vh;">
+            <div class="card animated animatedFadeInUp fadeInUp box mb-5 text-light" style="height: 60vh;">
+                <div class="card-body" style="font-size:18px;">
+                    <h3 class="card-title text-center">Sponsors</h3>
+                    <ul>
+                    <li><img src="" height="35px" width="55px" alt="L1"></li>
+                    <p> </p>
+                    <li><img src="" height="35px" width="55px" alt="L2"></li>
+                    <p> </p>
+                    <li><img src="" height="35px" width="55px" alt="L2"></li>
+                    <p> </p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+
+function openShutter() {
+
+document.getElementsByClassName("shutter")[0].setAttribute("class", "shutter test");
+
+document.getElementsByClassName("shutter1")[0].setAttribute("class", "shutter1 test1");
+
+document.getElementsByClassName("shutter2")[0].setAttribute("class", "shutter2 test2");
+
+
+}
+
+  </script>
+
+
+
+</body>
+
+<!--adjust height between cards and footer-->
+<div id="adjust"></div>
+
+<nav class="navbar navbar-expand-sm  navbar-dark justify-content-center fixed-bottom" style="background-color: black;">
+  <a class="navbar-brand mc-auto" style="color:white;font-family: 'Segoe UI',Roboto,Arial,sans-serif; font-size:1.25em;">&#169PICT IEEE Student Branch</a>
+</nav>

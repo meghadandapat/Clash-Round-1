@@ -1,0 +1,124 @@
+{% load static %}
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clash Result</title>
+
+    <script src="https://kit.fontawesome.com/361790cf68.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/Clash.css' %}" />
+
+</head>
+<header class="navbar navbar-expand-lg navbar-light" style="background:
+      #1F2839;">
+
+      <a class="navbar" href="#">
+        <img src="{% static '/images/clashwhite.png' %}" height="35px" width="55px" alt="LOGO">
+      </a>
+      <div class="bar">
+        <a class="navbar-brand text-white" href="#">Result</a>
+      </div>
+      <div class="navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="hide">
+          <img src="{% static '/images/logo pisb_2.png' %}" height="30" alt="LOGO">
+        </div>
+      </div>
+
+</header>
+
+  <body >
+    
+    <div class="row mx-auto  align-items-center" >
+        <div class=" col-lg-3" style="margin-top: 8vh;  ">
+            <div class="card animated animatedFadeInUp fadeInUp box mb-5 text-light" style="height: 60vh;">
+                <div class="card-header">
+                   <h3 class="card-title text-center" style="background-color:white;">Reverse Coding</h3>
+                </div>
+                <div class="card-body" style="font-size:18px;">
+                     <p style="text-align: center;">Reverse coding is a game which tests your logic and speed of developing algorithms
+                       of various mathematical phenomena.In this game you have to find answers of integer
+                      type questions using C/C++ code. </p>
+                </div>
+            </div>
+        </div>
+
+      <div class=" col-lg-6 text-center "  >
+        
+        <p style="color: black; font-size: 3.5vh; padding-top:0px; font-weight: bold;  font-family: sans-serif; ">Username</p> 
+        <div class="rotate1" style="z-index: -1; margin-bottom: 7vh;">
+            <div class="outer1 c1"></div>
+            <p class="text1">{{user.user.username}}</p>
+        </div> 
+
+        <div class="row">
+            <div class="col-lg-4" >
+                <div class="rotate1 c2" >
+                    <div class="outer1" style="z-index: -1;">
+                        
+                    </div>
+                    <p class="text2">{{ques_answered}}</p>
+                    <p class="text3">Questions</p>
+                    <p class="text4">Attempted</p>
+                </div> 
+                
+            </div>
+            <div class="col-lg-4" >
+                <div class="rotate c3">
+                    <div class="outer " ></div>
+                    <div class="middle"></div>
+                    <div class="inner"></div>
+                  </div>
+            </div>
+            <div class="col-lg-4" >
+                <div class="rotate1 c4" style="z-index: -1;">
+                    <div class="outer1"></div>
+                    <p class="text2">{{user.correct_answered}}</p>
+                    <p class="text3">Answered</p>
+                    <p class="text4">Correctly</p>
+                </div> 
+            </div>
+        </div>
+        
+        <div class="rotate1 c5" style="z-index: -1;">
+            <div class="outer1"></div>
+            <p class="text5">{{user.total_score}}</p>
+            <p class="text6">Score</p>
+        </div> 
+
+      </div>
+
+        <div class=" col-lg-3 end" style="margin-top: 8vh;">
+            <div class="card animated animatedFadeInUp fadeInUp box mb-5 text-light" style="height: 60vh;">
+                            <div class="card-header">
+                   <h3 class="card-title text-center" style="background-color:white;">Sponsors</h3>
+                </div>
+                <div class="card-body" style="font-size:18px;">
+                  
+                    <ul>
+                    <li><img src="" height="35px" width="55px" alt="L1"></li>
+                    <p> </p>
+                    <li><img src="" height="35px" width="55px" alt="L2"></li>
+                    <p> </p>
+                    <li><img src="" height="35px" width="55px" alt="L2"></li>
+                    <p> </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  
+<!--adjust height between cards and footer-->
+<div id="adjust"></div>
+
+<nav class="navbar navbar-expand-sm   justify-content-center fixed-bottom " style="background-color: #1F2839;">
+  <div class="navbar-brand mc-auto " style="color:white;font-family: 'Segoe UI',Roboto,Arial,sans-serif; font-size:1.25em;">&#169PICT IEEE Student Branch| <a href="{% url 'ourteam' %}" style="color:#DB4500;">Meet Our Team </a></div>
+</nav>
+
+
+
+
+</body>
+</html>

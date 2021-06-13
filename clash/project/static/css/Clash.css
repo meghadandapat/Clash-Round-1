@@ -1,0 +1,522 @@
+body
+{
+   
+    background-image: #B69D74;background-image: radial-gradient(circle, #ede7dd 0%, #c4b08f 70%, #B69D74 100%);
+}
+
+/*cards*/
+.box {
+    margin: 1vh;
+    padding: 0;
+    margin-top: 2vh;
+    vertical-align: middle;
+    border: 0px;
+    font-family: sans-serif;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 1);
+}
+
+.card-header
+{
+  color: #1F2839;
+  padding-bottom:0;
+}
+
+
+.card-body
+{
+  color: #F5F5EF;
+  background-color: #1F2839;
+    
+}
+
+footer {
+    background-color: #1F2839;
+    
+}
+
+.container{
+    position:relative;
+    text-align:center;
+    color:black;
+}
+
+.num
+{
+  font-weight: bold;  font-family: sans-serif;
+}
+
+.text1
+{
+    z-index: 10; margin-top: -13vh;font-size: 30px; font-weight: bold;
+}
+.text2
+{
+    z-index: 10; margin-top: -8vh; font-size: 28px; font-weight: bold;
+}
+.text3
+{
+    z-index: 10; margin-top: -10.2vh; font-size: 20px; font-weight: bold;
+}
+.text4
+{
+    z-index: 10; margin-top: -10vh; font-size: 20px; font-weight: bold;
+}
+.text5
+{
+    z-index: 10; margin-top: -12vh; font-size: 28px; font-weight: bold;
+}
+.text6
+{
+    z-index: 10; margin-top: -12vh; font-size: 20px; font-weight: bold;
+}
+
+
+
+/* Animation of cards*/
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+  opacity: 0
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
+
+
+ /*Animation to outer circles*/ 
+  .outer1 {
+    border: 5px solid black;
+    opacity: 0.9;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 15px black;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 0 auto;
+    animation: spin-inner 1s linear infinite normal;
+  }
+
+
+  @-moz-keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      opacity: initial;
+    }
+    50% {
+      transform: rotate(145deg);
+    opacity: initial;
+    }
+    to {
+      transform: rotate(-320deg);
+      opacity: initial;
+    }
+  }
+  @-webkit-keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+     
+    }
+    50% {
+      transform: rotate(145deg);
+      
+    }
+    to {
+      transform: rotate(-320deg);
+      
+    }
+  }
+  @-o-keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      
+    }
+    50% {
+      transform: rotate(145deg);
+      
+    }
+    to {
+      transform: rotate(-320deg);
+      
+    }
+  }
+  @keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      
+    }
+    50% {
+      transform: rotate(145deg);
+     
+    }
+    to {
+      transform: rotate(-320deg);
+      
+    }
+  }
+ 
+
+/* Animation for inner eye*/
+  .rotate {
+    position: relative;
+  }
+  .outer {
+    border: 4px solid rgba(0,229,183,0.9);
+    opacity: 0.9;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 0 35px black;
+    animation: spin-inner 2s linear infinite normal;
+    margin-top: 5vh;
+    background-color: #1F2839;
+  }
+ 
+  .inner {
+    border: 5px solid rgba(0,229,183,0.9);
+    opacity: 0.9;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,76,61,0.9);
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -6vh;
+    margin: 0 auto;
+    animation: spin-inner 1s linear infinite normal;
+  }
+  @-moz-keyframes spin-inner {
+    from {
+      transform: rotate(0deg);
+      
+    }
+    50% {
+      transform: rotate(180deg);
+      
+    }
+    to {
+      transform: rotate(360deg);
+     
+    }
+  }
+  @-webkit-keyframes spin-inner {
+    from {
+      transform: rotate(0deg);
+     
+    }
+    50% {
+      transform: rotate(180deg);
+      
+    }
+    to {
+      transform: rotate(360deg);
+      
+    }
+  }
+  @-o-keyframes spin-inner {
+    from {
+      transform: rotate(0deg);
+      
+    }
+    50% {
+      transform: rotate(180deg);
+     
+    }
+    to {
+      transform: rotate(360deg);
+      
+    }
+  }
+  @keyframes spin-inner {
+    from {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(-320deg);
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(-320deg);
+      opacity: 1;
+    }
+  }
+  @-o-keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(-320deg);
+      opacity: 1;
+    }
+  }
+  @keyframes spin-outer {
+    from {
+      transform: rotate(160deg);
+      opacity: 0.2;
+    }
+    50% {
+      transform: rotate(145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(-320deg);
+      opacity: 0.2;
+    }
+  }
+  @-moz-keyframes spin-middle {
+    from {
+      transform: rotate(-160deg);
+      opacity: 0.2;
+      box-shadow: 0 0 1px rgba(0,61,76,0.9);
+    }
+    50% {
+      transform: rotate(-145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(320deg);
+      opacity: 0.2;
+    }
+  }
+  @-webkit-keyframes spin-middle {
+    from {
+      transform: rotate(-160deg);
+      opacity: 0.2;
+      box-shadow: 0 0 1px rgba(0,61,76,0.9);
+    }
+    50% {
+      transform: rotate(-145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(320deg);
+      opacity: 0.2;
+    }
+  }
+  @-o-keyframes spin-middle {
+    from {
+      transform: rotate(-160deg);
+      opacity: 0.2;
+      box-shadow: 0 0 1px rgba(0,61,76,0.9);
+    }
+    50% {
+      transform: rotate(-145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(320deg);
+      opacity: 0.2;
+    }
+  }
+  @keyframes spin-middle {
+    from {
+      transform: rotate(-160deg);
+      opacity: 0.2;
+      box-shadow: 0 0 1px rgba(0,61,76,0.9);
+    }
+    50% {
+      transform: rotate(-145deg);
+      opacity: 1;
+    }
+    to {
+      transform: rotate(320deg);
+      opacity: 0.2;
+    }
+  }
+
+  @media (max-width:1922px)
+{
+    
+    .inner{
+        top: -45px !important;
+    }
+  .text1
+  {
+       margin-top: -100px !important;
+  }
+  .text2
+  {
+       margin-top: -60px !important; 
+  }
+  .text3
+  {
+      margin-top: -80px !important; 
+  }
+  .text4
+  {
+       margin-top: -80px !important; 
+  }
+  .text5
+  {
+     margin-top: -80px !important; 
+  }
+  .text6
+  {
+      margin-top: -80px !important; 
+  }
+ 
+  
+}
+
+@media(max-width:1368px)
+{
+  .col-lg-6
+  {
+    margin-top: -3vh;
+  }
+}
+
+
+@media (min-width:1152px) and (max-width:1282px)
+{
+  .col-lg-6
+  {
+    margin-top: -7vh;
+  }
+}
+
+@media (min-width:1020px) and (max-width:1028px)
+{
+  .card-body
+  {
+    font-size: 16px ;
+  }
+}
+
+  @media(max-width:922px)
+  {
+body
+{
+    overflow: scroll;
+}
+.hide
+{
+  display: none;
+}
+  }
+  
+@media (max-width:768px)
+{
+    .c1
+    {
+        margin-top: 50px;
+    }
+    .c2
+    {
+        margin-top: 50px;
+    } .c3
+    {
+        margin-top: 140px;
+    } .c4
+    {
+        margin-top: 50px;
+    } .c5
+    {
+        margin-top: 140px;
+    } 
+
+    .inner{
+        top: -45px !important;
+    }
+  .text1
+  {
+       margin-top: -100px !important;
+  }
+  .text2
+  {
+       margin-top: -60px !important; 
+  }
+  .text3
+  {
+      margin-top: -80px !important; 
+  }
+  .text4
+  {
+       margin-top: -80px !important; 
+  }
+  .text5
+  {
+     margin-top: -80px !important; 
+  }
+  .text6
+  {
+      margin-top: -80px !important; 
+  }
+  .end
+  {
+      margin-bottom: 12vh;
+      margin-top: 100px !important;
+  }
+  
+}
+

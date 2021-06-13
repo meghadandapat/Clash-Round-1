@@ -1,0 +1,15 @@
+{% extends 'task2part2temp/layout.html' %}
+{% block body %}
+      <p><b>{{user.user.first_name}}</b> with username  <b>{{ user.user.username }}</b>  has logged in Successfully</p>
+
+            {%for msg in msg %}
+            <h1>{{msg}}</h1>
+            {%endfor%}
+<h1>Your total score is: {{user.total_score}}</h1>
+
+
+    <form class="" action="{% url 'result' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="logout">
+    </form>
+{% endblock %}

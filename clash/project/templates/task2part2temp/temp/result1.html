@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+    <h1>
+        {%for msg in msg%}
+        {{msg}}
+        {%endfor%}
+    </h1>
+
+<h1>Your total score is: {{user.total_score}}</h1>
+    <br>
+    <br>
+    <a href="{% url 'signin' %}">Click Here To Sign In Again</a>
+    <br>
+    <br>
+    <a href="{% url 'signup' %}">Click Here To Register as New User</a>
+</body>
+</html>

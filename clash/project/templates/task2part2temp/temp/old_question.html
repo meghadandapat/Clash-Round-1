@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css" />
+    <script type="text/javascript" src="{% static '/js/Winwheel.js' %}"></script>
+    <title>question</title>
+    <style>
+        .queblock {
+            height: 150px;
+            border: solid black 2px;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+        window.history.forward();
+        function noBack()
+        {
+            window.history.forward();
+        }
+</script>
+<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+
+<p><b>{{user.user.first_name}}</b> with username <b>{{ user.user.username }}</b> has logged in Successfully
+<p><a href="{% url 'modal' %}">logout</a></p>
+
+
+
+<p>
+    {%for min in timemin%}
+    {%for sec in timesec%}
+        <h2>Time Remaining is {{min}}:{{sec}}</h2>
+    {% endfor%}
+{% endfor%}
+<h2>Your Predicted Score is: {{user.predicted_score}}</h2>
+</p>
+    <div>
+            <h3>Progress Bar</h3>
+            <div class="progress">
+                <div class="progress-bar" id="progressbar" role="progressbar"  aria-valuenow="90"
+                    aria-valuemin="0" aria-valuemax="100" ></div>
+            </div>
+    </div>
+    <br>
+
+
+
+<div class="queblock">
+    {{question.question}}
+</div>
+<div class="ansblock" style="margin: 50px;">
+    <form class="" action="{% url 'success' %}" method="post">
+        {% csrf_token %}
+        <input type="radio" id={{question.option_A}} name="user_ans" value={{question.option_A}} required>
+        <label for={{question.option_A}} >{{question.option_A}}</label><br><br>
+
+        <input type="radio" id={{question.option_B}} name="user_ans" value={{question.option_B}}>
+        <label for={{question.option_B}}>{{question.option_B}}</label><br><br>
+
+        <input type="radio" id={{question.option_C}} name="user_ans" value={{question.option_C}}>
+        <label for={{question.option_C}}>{{question.option_C}}</label><br><br>
+
+        <input type="radio" id={{question.option_D}} name="user_ans" value={{question.option_D}}>
+        <label for={{question.option_D}}>{{question.option_D}}</label><br><br>
+
+        <button type="submit" name = 'submit' value={{question.id}}  style="margin: 10px;">submit</button>
+    </form>
+</div>
+<h1>Your score is: {{user.total_score}}</h1>
+{% ifequal -1 user.checkpoint%}
+    {% ifequal 1 user.spincount %}
+        <h2>You have no Spins here after</h2>
+    {%endifequal%}
+{% else %}
+     <h2>Your checkpoint is {{user.checkpoint}}</h2>
+
+{%endifequal%}
+<h1>Spins Available : {{user.spincount}} </h1>
+{% for msg in msg %}
+<h2>{{msg}}</h2>
+
+{% endfor %}
+        <form action="{% url 'getassured'%}" method="post">
+            {% csrf_token %}
+
+        <button type="submit" id="get_assured" name = 'GetAssured' value={{question.id}}  style="margin: 10px;">GET IT ASSUERD!!</button>
+        </form>
+
+        <form action="{% url 'success' %}" method="post">
+            {% csrf_token %}
+        <input type="text" name="quenum" id="reattempt"><br>
+        <input type="submit" value="Go to question" id="attempt_button">
+        </form>
+
+        <input type="submit" value="Enable checkbox" id="enable_reattempt"><br><br>
+
+        <form method="post" action="{% url 'get_p_score' %}">
+            {% csrf_token %}
+            <input type="text" name="predicted_score" id="predicted_score"><br><br>
+            <input type="submit" value="Set the Predicted Score" id="p_score_button">
+        </form>
+
+
+        <div class="wheel">
+           <canvas id="canvas" width="434" height="434" style="border:1px solid #000000";></canvas>
+        </div>
+        <img id="prizePointer" src="{% static '/images/basic_pointer.png' %}">
+        <div id="lifeline"></div>
+
+        <input type="submit" value="Spin the Wheel" id="spin_button" onClick="startSpin();">
+
+        <script>
+            // Create new wheel object specifying the parameters at creation time.
+            let Wheel = new Winwheel({
+                'numSegments'  : 7,     // Specify number of segments.
+                'outerRadius'  : 212,   // Set outer radius so wheel fits inside the background.
+                'textOrientation' : 'vertical',
+                'textFontSize' : 24,    // Set font size as desired.
+                'segments'     :        // Define segments including colour and text.
+                [
+                   {'fillStyle' : '#cc66ff', 'text' : '0'},
+                   {'fillStyle' : '#99bbff', 'text' : '1'},
+                   {'fillStyle' : '#1affc6', 'text' : '2'},
+                   {'fillStyle' : '#00cc44', 'text' : '3'},
+                   {'fillStyle' : '#e6e600', 'text' : '4'},
+                   {'fillStyle' : '#FF7F00', 'text' : '5'},
+                   {'fillStyle' : '#ff6666', 'text' : '6'}
+                ],
+                'animation' :           // Specify the animation to use.
+                {
+                    'type'     : 'spinToStop',
+                    'duration' : 5,     // Duration in seconds.
+                    'spins'    : 8,     // Number of complete spins.
+                    'callbackFinished' : alertPrize
+                }
+            });
+
+            let wheelSpinning = false;
+
+            // -------------------------------------------------------
+            // Click handler for spin button.
+            // -------------------------------------------------------
+            function startSpin()
+            {
+                // Ensure that spinning can't be clicked again while already running.
+                if (wheelSpinning == false) {
+                    // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+                    // to rotate with the duration of the animation the quicker the wheel spins.
+
+                    // Disable the spin button so can't click again while wheel is spinning.
+                    document.getElementById('spin_button').disabled = true;
+
+                    // Begin the spin animation by calling startAnimation on the wheel object.
+                    Wheel.startAnimation();
+
+                    // Set to true so that power can't be changed and spin button re-enabled during
+                    // the current animation. The user will have to reset before spinning again.
+                    wheelSpinning = true;
+                }
+            }
+
+
+
+            function alertPrize(indicatedSegment)
+            {
+
+                $.ajax({
+                    method: 'GET',
+                    url: `${window.location.origin}/spincheck/`,
+                    dataType: 'json',
+                    data : {
+                        'flag': indicatedSegment.text
+                    },
+                    success: function(data) {
+                        let name=data.lifeline;
+                        if(data.flag==0)
+                        {
+                            $('input#enable_reattempt').prop("disabled", false);
+                            $('input#enable_reattempt').click(function(){
+                                $('#reattempt').show();
+                                $('input#attempt_button').show();
+                            });
+                            $('#lifeline').html("<h3>congrats u won chance to reattempt a question</h3>");
+                        }
+                        else if(data.flag==1)
+                        {
+                            $('#lifeline').html("<h3>Unlucky! -5 from ur total</h3>");
+                        }
+                        else if(data.flag==2)
+                        {
+                            $('#lifeline').html("<h3>congrats ur time is freezed for current question</h3>");
+                        }
+                        else if(data.flag==3)
+                        {
+                            $('#lifeline').html("<h3>Unlucky! -8 + 4 for next 3 questions</h3>");
+                        }
+                        else if(data.flag==4)
+                        {
+                            $('#lifeline').html("<h3>congrats you have no negative marks for next 3 questions</h3>");
+                        }
+                        else if(data.flag==5)
+                        {
+                            $('#lifeline').html("<h3>Unlucky! u cannot spin here after</h3>");
+                        }
+                        else if(data.flag==6)
+                        {
+                            $('#lifeline').html("<h3>congrats you have +16-10 marking scmeme for current question</h3>");
+                        }
+                    }
+                });
+            }
+        </script>
+</body>
+
+</html>

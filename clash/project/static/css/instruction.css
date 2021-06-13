@@ -1,0 +1,215 @@
+body {
+/*background: #f2709c;   fallback for old browsers
+background: -webkit-linear-gradient(to bottom, #f2709c, #ff9472);  Chrome 10-25, Safari 5.1-6
+background: linear-gradient(to bottom, #f2709c, #ff9472);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*background: #797979;
+ background: linear-gradient(90deg,#797979 0%, #353535 80%);
+ background: -webkit-linear-gradient(90deg,#797979 0%, #353535 80%);
+ background: -moz-linear-gradient(90deg,#797979 0%, #353535 80%);
+ background-image: url("graybg.jpg");*/
+
+}
+
+.container-fluid{
+    padding-top: 2vh;
+}
+
+.navbar{
+    height:8vh;
+}
+.card{
+  /*background: #797979;
+ background: linear-gradient(90deg,#797979 0%, #353535 80%);
+ background: -webkit-linear-gradient(90deg,#797979 0%, #353535 80%);
+ background: -moz-linear-gradient(90deg,#797979 0%, #353535 80%);*/
+}
+.card1{
+    margin-top: 8vh;
+    height: 75vh;
+    z-index: 1;
+    font-size: 2.5vh;
+    color: white;
+    box-shadow: 10px 10px 25px  black, -1px -6px 30px black;
+    text-align: center;
+}
+.card2{
+    z-index: 1;
+    margin-top: -10vh;
+    height: 25vh;
+    color: white;
+    opacity: 0.9;
+    box-shadow: 2px 8px 4px  black, 5px -6px 25px  black;
+    font-size: 2.5vh;
+}
+
+.card2:hover{
+  opacity: 1;
+  z-index: 1;
+  margin-top: -70vh;
+  height: 90vh;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+
+}
+p{
+    text-align: justify;
+}
+label{
+  font-size: 2vh;
+  text-align: left;
+}
+.navbar-brand{
+    text-align: center;
+}
+
+.cent{
+    text-align: center;
+}
+
+.arrow {
+  /*margin-left: 22vw;*/
+  display: inline-block;
+  margin-top:0px;
+}
+
+.fas,.far{
+    font-size: 7vh;
+
+}
+.right{
+    float:right;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.up:hover{
+    transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.button {
+  text-align: center;
+  /*text-transform: uppercase;*/
+  cursor: pointer;
+  font-size: 2vh;
+  /*letter-spacing: 4px;*/
+  position: relative;
+  background-color:#b69d74 ;
+  border: none;
+  color: #fff;
+  padding: 2vh;
+  width: 10vw;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+}
+.button:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #b69d74;
+  color: #000;
+}
+
+.button:after {
+  content: "";
+  background: #b69d74;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.button:focus { outline:0; }
+
+@media screen and (min-width: 1200px)
+{
+    body{
+        font-family: 'Exo', sans-serif;
+        overflow: hidden;
+    }
+}
+
+
+
+@media screen and (max-width: 400px){
+  .button{
+    width: 25vw;
+  }
+  .card2{
+    margin-top: 3vh;
+    height: 25vh;
+    overflow: hidden;
+  }
+  .card2:hover{
+    margin-top: 3vh;
+    height: 80vh;
+  }
+  .last{
+    margin-bottom: 10vh;
+  }
+
+
+}
+@media screen and (max-width: 1024px){
+  .button{
+    width: 25vw;
+  }
+
+}
+
+@media screen and (max-width: 280px){
+  .button{
+    width: 50vw;
+    font-size: 1.5vh;
+  }
+  .card2{
+    margin-top: 3vh;
+  }
+  .card1{
+    height: 80vh;
+  }
+}
+
+@media screen and (max-width: 540px){
+  .button{
+    width: 25vw;
+  }
+  .card2{
+    margin-top: 3vh;
+    overflow: hidden;
+  }
+  .card-body2{
+
+  }
+
+  .card2:hover{
+    margin-top: 4vh;
+  }
+  .last{
+    margin-bottom: 10vh;
+  }
+}
+
+@media screen and (min-width: 576px){
+  .arrow{
+    display:none ;
+  }
+}
+
+
+

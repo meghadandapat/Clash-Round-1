@@ -1,0 +1,6 @@
+venv
+.idea
+clash/clash/__pycache__
+clash/project/__pycache__
+clash/clash/.idea
+clash/project/.idea
