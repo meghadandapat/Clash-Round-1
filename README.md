@@ -1,12 +1,13 @@
 # Clash-Round-1
-MCQ Platform 
+MCQ Platform based on the theme, **Vision**. It was built to test logical aptitute of participants during Credenz which is a techincal event organised by PISB.  
 
 <p>
 
-## Steps to run project on your local server:
+## Steps to run the project:
+	
+**Requirements:** Python and pip must be installed in your system.
 
 ### 1) Clone the project onto your local machine.
-
 
 	git clone https://github.com/meghadandapat/Clash-Round-1.git
 
@@ -23,18 +24,11 @@ activate this virtual envirnoment:
 
 installing all required packages which are present in requirement.txt:
 
-	pip install -r requirements.txt
+	python -m pip install -r requirements.txt
 
-
-
-### 3) Run this application by command:
-
-
+### 3) Start the development server:
 
 	python manage.py runserver
-
-
-
 
 </p>
 </details>
