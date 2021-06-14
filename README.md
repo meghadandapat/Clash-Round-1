@@ -1,6 +1,5 @@
 # Clash-Round-1
-MCQ Platform based on the theme, **Vision**. It was built to test logical aptitute of participants during Credenz which is a techincal event organised by PISB.  
-
+MCQ Platform based on the theme, Vision. It was built to test the logical aptitude of participants during Credenz, which is a technical event organised by PISB. This 28 minutes long quiz comprising multiple-choice questions on C, C++ and Python also had 3 different lifelines that could be availed at certain points during the game.
 <p>
 
 ## Steps to run the project:
